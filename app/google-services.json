@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "71473411438",
+    "project_id": "telecomreclamation-520eb",
+    "storage_bucket": "telecomreclamation-520eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71473411438:android:144602caa98ef04f803d7f",
+        "android_client_info": {
+          "package_name": "com.example.telecomreclamation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71473411438-rneqg6l5riig3on1j8av2mlfucfb1s8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeepQ_M5oJsd7YK3bGn9Lx51Fiotza0MY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71473411438-rneqg6l5riig3on1j8av2mlfucfb1s8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
