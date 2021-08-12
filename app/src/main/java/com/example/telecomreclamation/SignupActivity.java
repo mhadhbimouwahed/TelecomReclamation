@@ -71,16 +71,18 @@ public class SignupActivity extends AppCompatActivity {
         firebaseAuth.createUserWithEmailAndPassword(email_signup.getText().toString(),password_signup.getText().toString())
                 .addOnCompleteListener(task->{
                     if (task.isSuccessful()){
-                        email_signup.setText("");
-                        password_signup.setText("");
-                        confirmPassword_signup.setText("");
+
                         HashMap<String,String> new_user=new HashMap<>();
                         new_user.put("Email",email_signup.getText().toString());
+
                         new_user.put("UserID",firebaseAuth.getUid());
                         collectionReference.document(firebaseAuth.getUid()).set(new_user).addOnCompleteListener(secondTask->{
                            if (secondTask.isSuccessful()){
 
                                Toast.makeText(getApplicationContext(), "user saved successfully", Toast.LENGTH_SHORT).show();
+                               email_signup.setText("");
+                               password_signup.setText("");
+                               confirmPassword_signup.setText("");
                            }else{
                                Toast.makeText(getApplicationContext(), "user is not saved successfully", Toast.LENGTH_SHORT).show();
                            }

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TelecomReclamation">
         <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdminActivity"
+            android:exported="true" />
+        <activity
             android:name=".NavigationActivity"
             android:exported="true"
             android:label="@string/title_activity_navigation"

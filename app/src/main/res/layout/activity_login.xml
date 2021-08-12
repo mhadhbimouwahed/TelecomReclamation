@@ -43,13 +43,13 @@
                 android:layout_toRightOf="@+id/username_icon"
                 android:background="@android:color/transparent"
                 android:fontFamily="sans-serif"
-
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:paddingLeft="17dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
+                android:textColor="#1d3c7a"
 
                 android:textSize="14sp" />
 
@@ -154,6 +154,7 @@
                 android:fontFamily="sans-serif"
 
                 android:textSize="14sp"/>
+
 
 
 

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "71473411438-dil3ckueh6la0fbqe96ddedioenepf40.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.telecomreclamation",
+            "certificate_hash": "6dfa42d1063ea06849afc168a40301149976993b"
+          }
+        },
+        {
           "client_id": "71473411438-rneqg6l5riig3on1j8av2mlfucfb1s8i.apps.googleusercontent.com",
           "client_type": 3
         }
