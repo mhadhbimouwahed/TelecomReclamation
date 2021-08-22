@@ -26,9 +26,45 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+
+
+    flavorDimensions "default"
+    productFlavors{
+        client{
+            dimension "default"
+            applicationIdSuffix ".client"
+
+        }
+        bassem{
+            dimension "default"
+            applicationIdSuffix ".bassem"
+        }
+    }
+
     buildFeatures {
         viewBinding true
     }
+    sourceSets {
+        bassem {
+            res {
+                srcDirs 'src/bassem/res'
+            }
+            java {
+                srcDirs 'src/bassem/java'
+            }
+        }
+        client {
+            res {
+                srcDirs 'src/client/res'
+            }
+            java {
+                srcDirs 'src/client/java'
+            }
+        }
+    }
+
+
 }
 
 dependencies {

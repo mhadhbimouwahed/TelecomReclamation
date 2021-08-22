@@ -17,17 +17,19 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:src="@drawable/logo"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="20dp"
         android:layout_gravity="center_horizontal"
         />
 
     <TextView
+        android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_marginBottom="20dp"
         android:layout_gravity="center_horizontal"
         android:text="ClientEmail"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textStyle="bold"
+         />
 
 
 </LinearLayout>
