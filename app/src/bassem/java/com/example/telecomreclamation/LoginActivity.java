@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         forgotPassword.setOnClickListener(x->{
-
+            startActivity(new Intent(getApplicationContext(),ForgotPasswordActivity.class));
         });
 
         signup.setOnClickListener(x->{

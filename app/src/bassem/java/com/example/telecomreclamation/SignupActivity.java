@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText password_signup;
     private EditText confirm_password_signup;
     private TextView signup;
+    private ProgressBar progress_bar_signup;
 
     FirebaseFirestore firestore;
     FirebaseAuth firebaseAuth;
@@ -38,6 +41,7 @@ public class SignupActivity extends AppCompatActivity {
         password_signup=findViewById(R.id.password_signup);
         confirm_password_signup=findViewById(R.id.confirm_password_signup);
         signup=findViewById(R.id.signup_signup);
+        progress_bar_signup=findViewById(R.id.progress_bar_signup);
         
         firebaseAuth=FirebaseAuth.getInstance();
         firestore=FirebaseFirestore.getInstance();
@@ -61,7 +65,9 @@ public class SignupActivity extends AppCompatActivity {
                 builder.setPositiveButton("Okay",((dialog, which) -> dialog.dismiss()));
                 builder.show();
             }else{
+               progress_bar_signup.setVisibility(View.VISIBLE);
                 Signup();
+                progress_bar_signup.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -102,5 +108,11 @@ public class SignupActivity extends AppCompatActivity {
                 }).addOnFailureListener(failure->{
                     Log.d("Error_SIGNUP",failure.getMessage());
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        progress_bar_signup.setVisibility(View.INVISIBLE);
     }
 }
