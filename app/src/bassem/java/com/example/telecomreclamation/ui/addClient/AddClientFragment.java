@@ -1,4 +1,4 @@
-package ttt.ui.addClient;
+package com.example.telecomreclamation.ui.addClient;
 
 import android.os.Bundle;
 import android.util.Log;

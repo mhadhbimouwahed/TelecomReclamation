@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ProgressBar;
 
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     ProgressBar wait;
@@ -33,7 +34,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 
             }
         };

@@ -35,10 +35,13 @@ android {
             dimension "default"
             applicationIdSuffix ".client"
 
+
         }
         bassem{
             dimension "default"
             applicationIdSuffix ".bassem"
+
+
         }
     }
 
@@ -53,6 +56,9 @@ android {
             java {
                 srcDirs 'src/bassem/java'
             }
+            manifest{
+                srcFile 'src/bassem/AndroidManifest.xml'
+            }
         }
         client {
             res {
@@ -60,6 +66,9 @@ android {
             }
             java {
                 srcDirs 'src/client/java'
+            }
+            manifest{
+                srcFile 'src/client/AndroidManifest.xml'
             }
         }
     }
@@ -80,6 +89,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.annotation:annotation:1.2.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

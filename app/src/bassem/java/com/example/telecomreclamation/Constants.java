@@ -1,4 +1,4 @@
-package ttt;
+package com.example.telecomreclamation;
 
 public class Constants {
 

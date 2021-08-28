@@ -1,4 +1,4 @@
-package ttt;
+package com.example.telecomreclamation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.telecomreclamation.R;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;

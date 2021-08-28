@@ -1,4 +1,4 @@
-package ttt.ui.addClient;
+package com.example.telecomreclamation.ui.addClient;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

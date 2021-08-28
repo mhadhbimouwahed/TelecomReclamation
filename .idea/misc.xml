@@ -4,28 +4,45 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/bassem/res/layout/activity_forgot_password.xml" value="0.2601851851851852" />
-        <entry key="app/src/bassem/res/layout/activity_login.xml" value="0.321875" />
+        <entry key="app/src/bassem/res/layout/activity_login.xml" value="0.4" />
         <entry key="app/src/bassem/res/layout/activity_nav.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/activity_signuo.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/activity_signup.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/activity_tetris.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/app_bar_nav.xml" value="0.321875" />
+        <entry key="app/src/bassem/res/layout/clients.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/content_nav.xml" value="0.321875" />
+        <entry key="app/src/bassem/res/layout/fragment_add_client.xml" value="0.2601851851851852" />
+        <entry key="app/src/bassem/res/layout/fragment_add_remove_client.xml" value="0.2601851851851852" />
+        <entry key="app/src/bassem/res/layout/fragment_delete_complaint.xml" value="0.2601851851851852" />
         <entry key="app/src/bassem/res/layout/fragment_gallery.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/fragment_home.xml" value="0.321875" />
+        <entry key="app/src/bassem/res/layout/fragment_modify_client.xml" value="0.321875" />
+        <entry key="app/src/bassem/res/layout/fragment_see_complaint.xml" value="0.2601851851851852" />
         <entry key="app/src/bassem/res/layout/fragment_slideshow.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/nav_header_nav.xml" value="0.321875" />
         <entry key="app/src/bassem/res/menu/activity_main_drawer.xml" value="0.321875" />
         <entry key="app/src/bassem/res/menu/nav.xml" value="0.321875" />
         <entry key="app/src/bassemFlavor/res/layout/activity_testing.xml" value="0.321875" />
         <entry key="app/src/bassemFlavor/res/layout/content_admin_navigation.xml" value="0.321875" />
+        <entry key="app/src/client/res/layout/activity_forgot_password.xml" value="0.31562819203268644" />
+        <entry key="app/src/client/res/layout/activity_login.xml" value="0.321875" />
+        <entry key="app/src/client/res/layout/activity_login2.xml" value="0.321875" />
+        <entry key="app/src/client/res/layout/activity_nav.xml" value="0.321875" />
+        <entry key="app/src/client/res/layout/activity_signup.xml" value="0.31562819203268644" />
         <entry key="app/src/client/res/layout/activity_tetris.xml" value="0.321875" />
         <entry key="app/src/client/res/layout/content_nav.xml" value="0.321875" />
+        <entry key="app/src/client/res/layout/fragment_gallery.xml" value="0.321875" />
+        <entry key="app/src/client/res/layout/fragment_home.xml" value="0.321875" />
+        <entry key="app/src/client/res/menu/activity_main_drawer.xml" value="0.321875" />
+        <entry key="app/src/client/res/menu/nav.xml" value="0.321875" />
         <entry key="app/src/main/res/drawable/blue_border_rounded_cornwe.xml" value="0.3355464759959142" />
         <entry key="app/src/main/res/drawable/cursor_color.xml" value="0.3355464759959142" />
         <entry key="app/src/main/res/drawable/gradient.xml" value="0.3355464759959142" />
         <entry key="app/src/main/res/drawable/gradient_signup.xml" value="0.17592592592592593" />
         <entry key="app/src/main/res/drawable/gradient_textview.xml" value="0.3355464759959142" />
+        <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.20092592592592592" />
+        <entry key="app/src/main/res/drawable/password.xml" value="0.20092592592592592" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.3355464759959142" />
         <entry key="app/src/main/res/layout/activity_admin.xml" value="0.321875" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.321875" />

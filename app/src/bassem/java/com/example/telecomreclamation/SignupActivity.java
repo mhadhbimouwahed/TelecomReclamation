@@ -1,4 +1,4 @@
-package ttt;
+package com.example.telecomreclamation;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.telecomreclamation.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -115,5 +114,6 @@ public class SignupActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         progress_bar_signup.setVisibility(View.INVISIBLE);
+
     }
 }
