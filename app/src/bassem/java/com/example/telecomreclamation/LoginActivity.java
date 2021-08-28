@@ -1,4 +1,4 @@
-package com.example.telecomreclamation;
+package ttt;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,13 +12,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.telecomreclamation.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
@@ -63,11 +62,11 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         forgotPassword.setOnClickListener(x->{
-            startActivity(new Intent(getApplicationContext(),ForgotPasswordActivity.class));
+            startActivity(new Intent(getApplicationContext(), ForgotPasswordActivity.class));
         });
 
         signup.setOnClickListener(x->{
-            startActivity(new Intent(this,SignupActivity.class));
+            startActivity(new Intent(this, SignupActivity.class));
         });
 
     }
@@ -87,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                                         .addOnCompleteListener(task->{
                                             if (task.isSuccessful()){
                                                 progressBar.setVisibility(View.INVISIBLE);
-                                                startActivity(new Intent(this,NavActivity.class));
+                                                startActivity(new Intent(this, NavActivity.class));
                                                 Toast.makeText(getApplicationContext(), "Loged in successfully", Toast.LENGTH_SHORT).show();
 
                                             }else{
@@ -120,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
         user=firebaseAuth.getCurrentUser();
         if (user!=null){
-            startActivity(new Intent(this,NavActivity.class));
+            startActivity(new Intent(this, NavActivity.class));
         }
     }
 

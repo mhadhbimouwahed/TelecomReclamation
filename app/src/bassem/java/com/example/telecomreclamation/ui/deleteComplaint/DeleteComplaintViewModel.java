@@ -1,4 +1,4 @@
-package com.example.telecomreclamation.ui.deleteComplaint;
+package ttt.ui.deleteComplaint;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
