@@ -48,7 +48,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             if (reset_email.getText().toString().equals("")){
                 reset_email.setError("This field cannot be empty");
             }else{
+                reset_progress_bar.setVisibility(View.VISIBLE);
                 resetPassword();
+                reset_progress_bar.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -56,25 +58,37 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     private void resetPassword() {
-        
+
         collectionReference.whereEqualTo("Email",reset_email.getText().toString()).get()
                 .addOnCompleteListener(task->{
                     if (task.isSuccessful()){
-                        for (QueryDocumentSnapshot documentSnapshot:task.getResult()){
-                            HashMap<String,Object> hashMap=new HashMap<>(documentSnapshot.getData());
+                        if (task.getResult().isEmpty()){
+                            AlertDialog.Builder builder=new AlertDialog.Builder(this);
+                            builder.create();
+                            builder.setTitle("Error");
+                            builder.setMessage("the email address you entered is incorrect");
+                            builder.setPositiveButton("Okay",((dialog, which) -> dialog.dismiss()));
+                            builder.show();
+                        }else{
+                            for (QueryDocumentSnapshot documentSnapshot:task.getResult()){
+                                HashMap<String,Object> hashMap=new HashMap<>(documentSnapshot.getData());
 
-                            if (hashMap.isEmpty()){
-                                AlertDialog.Builder builder=new AlertDialog.Builder(this);
-                                builder.create();
-                                builder.setTitle("Error");
-                                builder.setMessage("the email address you entered is incorrect");
-                                builder.setPositiveButton("Okay",((dialog, which) -> dialog.dismiss()));
-                                builder.show();
 
-                            }else{
+                                firebaseAuth.sendPasswordResetEmail(reset_email.getText().toString())
+                                        .addOnCompleteListener(secondTask->{
+                                            if (secondTask.isSuccessful()){
+                                                Toast.makeText(getApplicationContext(), "check your inbox, continue the procedure from there", Toast.LENGTH_SHORT).show();
+                                                reset_email.setText("");
+                                            }else{
+                                                Toast.makeText(getApplicationContext(), "failed to reset password, please check your internet connection", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }).addOnFailureListener(secondFailure->{
+                                    Log.d("ERROR_SENDING_RESET_INFORMATION",secondFailure.getMessage());
+                                });
 
                             }
                         }
+
                     }else{
                         Toast.makeText(getApplicationContext(), "please check your internet connection", Toast.LENGTH_SHORT).show();
                     }

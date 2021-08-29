@@ -1,4 +1,4 @@
-package com.example.telecomreclamation.ui.addClient;
+package com.example.telecomreclamation.ui.manageClients;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -12,33 +12,41 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
-import com.example.telecomreclamation.databinding.FragmentAddClientBinding;
+
+import com.example.telecomreclamation.R;
+import com.example.telecomreclamation.databinding.FragmentManageClientsBinding;
 
 import java.util.HashMap;
 import java.util.UUID;
 
 
-public class AddClientFragment extends Fragment {
+public class ManageClientFragment extends Fragment {
 
-    private AddClientViewModel addClientViewModel;
-    private FragmentAddClientBinding binding;
+    private ManageClientViewModel addClientViewModel;
+    private FragmentManageClientsBinding binding;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         addClientViewModel =
-                new ViewModelProvider(this).get(AddClientViewModel.class);
+                new ViewModelProvider(this).get(ManageClientViewModel.class);
 
-        binding = FragmentAddClientBinding.inflate(inflater, container, false);
+        binding = FragmentManageClientsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final EditText client_name=binding.clientName;
         final EditText client_email=binding.clientEmail;
         final EditText client_password=binding.clientPassword;
         final TextView save_client=binding.saveClient;
+        final TextView navigate=binding.navigateToModifyClient;
 
 
+
+        navigate.setOnClickListener(x->{
+            Navigation.findNavController(root).navigate(R.id.action_nav_gallery_to_nav_modify_client);
+        });
 
         save_client.setOnClickListener(x->{
             if (client_email.getText().toString().equals("")){
@@ -60,6 +68,7 @@ public class AddClientFragment extends Fragment {
                                 Toast.makeText(getContext().getApplicationContext(), "client added successfully", Toast.LENGTH_SHORT).show();
                                 client_name.setText("");
                                 client_email.setText("");
+                                client_password.setText("");
                             }else{
                                 Toast.makeText(getContext().getApplicationContext(), "failed to add a client", Toast.LENGTH_SHORT).show();
                             }

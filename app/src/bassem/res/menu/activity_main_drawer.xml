@@ -16,9 +16,9 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_delete_complaint" />
-        <item
+        <!--<item
             android:id="@+id/nav_modify_client"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_modify_client" />
+            android:title="@string/menu_modify_client" />-->
     </group>
 </menu>

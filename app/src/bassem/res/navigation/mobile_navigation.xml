@@ -13,9 +13,13 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.telecomreclamation.ui.addClient.AddClientFragment"
+        android:name="com.example.telecomreclamation.ui.manageClients.ManageClientFragment"
         android:label="@string/menu_add_client"
-        tools:layout="@layout/fragment_add_client" />
+        tools:layout="@layout/fragment_manage_clients" >
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_modify_client"
+            app:destination="@id/nav_modify_client" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
