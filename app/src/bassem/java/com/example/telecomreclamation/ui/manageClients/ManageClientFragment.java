@@ -18,65 +18,48 @@ import androidx.navigation.Navigation;
 import com.example.telecomreclamation.R;
 import com.example.telecomreclamation.databinding.FragmentManageClientsBinding;
 
+
 import java.util.HashMap;
 import java.util.UUID;
 
 
 public class ManageClientFragment extends Fragment {
 
-    private ManageClientViewModel addClientViewModel;
+    private ManageClientViewModel manageClientViewModel;
     private FragmentManageClientsBinding binding;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        addClientViewModel =
+        manageClientViewModel =
                 new ViewModelProvider(this).get(ManageClientViewModel.class);
 
         binding = FragmentManageClientsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final EditText client_name=binding.clientName;
-        final EditText client_email=binding.clientEmail;
-        final EditText client_password=binding.clientPassword;
-        final TextView save_client=binding.saveClient;
-        final TextView navigate=binding.navigateToModifyClient;
 
+        final TextView navigate_to_modify=binding.navigateToModifyClient;
+        final TextView navigate_to_delete=binding.navigateToDeleteClient;
+        final TextView navigate_to_add=binding.navigateToAddClient;
+        final TextView navigate_to_see=binding.navigateToSeeClients;
 
+        navigate_to_see.setOnClickListener(x->{
+            Navigation.findNavController(root).navigate(R.id.action_nav_gallery_to_seeClientsFragment);
+        });
 
-        navigate.setOnClickListener(x->{
+        navigate_to_modify.setOnClickListener(x->{
             Navigation.findNavController(root).navigate(R.id.action_nav_gallery_to_nav_modify_client);
         });
 
-        save_client.setOnClickListener(x->{
-            if (client_email.getText().toString().equals("")){
-                client_email.setError("This field cannot be empty");
-            }else if(client_password.getText().toString().equals("")){
-                client_password.setError("This field cannot be empty");
-            }else if(client_name.getText().toString().equals("")){
-                client_name.setError("This fiald cannot be empty");
-            }else{
-                String uuid=UUID.randomUUID().toString();
-                HashMap<String,String> hashMap=new HashMap<>();
-                hashMap.put("clientID", uuid);
-                hashMap.put("clientPassword",client_password.getText().toString());
-                hashMap.put("ClientEmail",client_email.getText().toString());
-
-                addClientViewModel.collectionReference.document(client_name.getText().toString()).collection("Emails").document(uuid).set(hashMap)
-                        .addOnCompleteListener(task->{
-                            if (task.isSuccessful()){
-                                Toast.makeText(getContext().getApplicationContext(), "client added successfully", Toast.LENGTH_SHORT).show();
-                                client_name.setText("");
-                                client_email.setText("");
-                                client_password.setText("");
-                            }else{
-                                Toast.makeText(getContext().getApplicationContext(), "failed to add a client", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(failure->{
-                            Log.d("ERROR_ADDING_CLIENT",failure.getMessage());
-                });
-            }
+        navigate_to_delete.setOnClickListener(x->{
+            Navigation.findNavController(root).navigate(R.id.action_nav_gallery_to_deleteClient);
         });
+
+        navigate_to_add.setOnClickListener(x->{
+            Navigation.findNavController(root).navigate(R.id.action_nav_gallery_to_nav_add_client);
+        });
+
+
 
         return root;
     }

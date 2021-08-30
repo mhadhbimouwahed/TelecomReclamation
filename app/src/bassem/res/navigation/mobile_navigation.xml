@@ -14,11 +14,21 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.telecomreclamation.ui.manageClients.ManageClientFragment"
-        android:label="@string/menu_add_client"
+        android:label="@string/menu_manage_client"
         tools:layout="@layout/fragment_manage_clients" >
         <action
             android:id="@+id/action_nav_gallery_to_nav_modify_client"
             app:destination="@id/nav_modify_client" />
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_add_client"
+            app:destination="@id/nav_add_client" />
+        <action
+            android:id="@+id/action_nav_gallery_to_deleteClient"
+            app:destination="@id/nav_delete_client" />
+        <action
+            android:id="@+id/action_nav_gallery_to_seeClientsFragment"
+            app:destination="@id/nav_see_clients" />
+
     </fragment>
 
     <fragment
@@ -31,4 +41,19 @@
         android:name="com.example.telecomreclamation.ui.modifyClient.ModifyClientFragment"
         android:label="@string/menu_modify_client"
         tools:layout="@layout/fragment_modify_client" />
+    <fragment
+        android:id="@+id/nav_add_client"
+        android:name="com.example.telecomreclamation.ui.addClient.AddClientFragment"
+        android:label="@string/menu_add_client"
+        tools:layout="@layout/fragment_add_client" />
+    <fragment
+        android:id="@+id/nav_delete_client"
+        android:name="com.example.telecomreclamation.ui.deleteClient.DeleteClientFragment"
+        android:label="@string/menu_delete_client"
+        tools:layout="@layout/fragment_delete_client" />
+    <fragment
+        android:id="@+id/nav_see_clients"
+        android:name="com.example.telecomreclamation.ui.seeClients.SeeClientsFragment"
+        android:label="SeeClientsFragment"
+        tools:layout="@layout/fragment_see_clients"/>
 </navigation>

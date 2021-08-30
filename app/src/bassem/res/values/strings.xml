@@ -9,9 +9,12 @@
     <string name="action_logout">Logout</string>
 
     <string name="menu_see_complaints">See complaints</string>
-    <string name="menu_add_client">Manage Clients</string>
+    <string name="menu_manage_client">Manage Clients</string>
     <string name="menu_delete_complaint">Delete complaint</string>
     <string name="menu_modify_client">Modify Client</string>
+    <string name="menu_add_client">Add Client</string>
+    <string name="menu_delete_client">Delete Client</string>
+    <string name="menu_see_clients">See Clients</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

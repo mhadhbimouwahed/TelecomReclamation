@@ -10,15 +10,18 @@
         <entry key="app/src/bassem/res/layout/activity_signup.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/activity_tetris.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/app_bar_nav.xml" value="0.321875" />
+        <entry key="app/src/bassem/res/layout/client.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/clients.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/content_nav.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/fragment_add_client.xml" value="0.2601851851851852" />
         <entry key="app/src/bassem/res/layout/fragment_add_remove_client.xml" value="0.2601851851851852" />
+        <entry key="app/src/bassem/res/layout/fragment_delete_client.xml" value="0.264" />
         <entry key="app/src/bassem/res/layout/fragment_delete_complaint.xml" value="0.2601851851851852" />
         <entry key="app/src/bassem/res/layout/fragment_gallery.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/fragment_home.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/fragment_manage_clients.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/fragment_modify_client.xml" value="0.321875" />
+        <entry key="app/src/bassem/res/layout/fragment_see_clients.xml" value="0.264" />
         <entry key="app/src/bassem/res/layout/fragment_see_complaint.xml" value="0.2601851851851852" />
         <entry key="app/src/bassem/res/layout/fragment_slideshow.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/nav_header_nav.xml" value="0.321875" />

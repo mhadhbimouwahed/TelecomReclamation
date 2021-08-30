@@ -13,13 +13,13 @@ import com.example.telecomreclamation.databinding.FragmentModifyClientBinding;
 
 public class ModifyClientFragment extends Fragment {
 
-    private ModifyClientViewHolder modifyClientViewHolder;
+    private ModifyClientViewModel modifyClientViewHolder;
     private FragmentModifyClientBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                          ViewGroup container, Bundle savedInstanceState){
         modifyClientViewHolder=
-                new ViewModelProvider(this).get(ModifyClientViewHolder.class);
+                new ViewModelProvider(this).get(ModifyClientViewModel.class);
 
         binding = FragmentModifyClientBinding.inflate(inflater,container,false);
         View root=binding.getRoot();

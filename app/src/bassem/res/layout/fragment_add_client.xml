@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_signup"
-    tools:context=".ui.manageClients.ManageClientFragment">
+    tools:context=".ui.addClient.AddClientFragment">
+
 
 
     <ScrollView
@@ -32,7 +32,98 @@
 
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+
+                    android:text="Add Client"
+                    android:textColor="#ffffff"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="62dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="62dp"
+                android:background="@drawable/blue_border_rounded_cornwe">
+
+                <EditText
+                    android:id="@+id/client_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="sans-serif"
+                    android:hint="Client name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingLeft="17dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="62dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="62dp"
+                android:background="@drawable/blue_border_rounded_cornwe">
+
+                <EditText
+                    android:id="@+id/client_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="sans-serif"
+                    android:hint="Client email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:paddingLeft="17dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="62dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="62dp"
+                android:background="@drawable/blue_border_rounded_cornwe">
+
+                <EditText
+                    android:id="@+id/client_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="sans-serif"
+                    android:hint="Client password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingLeft="17dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -42,7 +133,7 @@
                 android:layout_marginRight="62dp">
 
                 <TextView
-                    android:id="@+id/navigate_to_see_clients"
+                    android:id="@+id/save_client"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -53,7 +144,7 @@
                     android:gravity="center"
                     android:paddingTop="14dp"
                     android:paddingBottom="14dp"
-                    android:text="see clients"
+                    android:text="add"
                     android:textColor="#ffffff"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -62,96 +153,9 @@
 
             </RelativeLayout>
 
-
-
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="62dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="62dp">
-
-                <TextView
-                    android:id="@+id/navigate_to_add_client"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="62dp"
-                    android:layout_marginRight="62dp"
-                    android:background="@drawable/gradient_textview"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:paddingTop="14dp"
-                    android:paddingBottom="14dp"
-                    android:text="add client"
-                    android:textColor="#ffffff"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-
-                    />
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="62dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="62dp">
-
-                <TextView
-                    android:id="@+id/navigate_to_modify_client"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="62dp"
-                    android:layout_marginRight="62dp"
-                    android:background="@drawable/gradient_textview"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:paddingTop="14dp"
-                    android:paddingBottom="14dp"
-                    android:text="modify client"
-                    android:textColor="#ffffff"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-
-                    />
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="62dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="62dp">
-
-                <TextView
-                    android:id="@+id/navigate_to_delete_client"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="62dp"
-                    android:layout_marginRight="62dp"
-                    android:background="@drawable/gradient_textview"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:paddingTop="14dp"
-                    android:paddingBottom="14dp"
-                    android:text="delete client"
-                    android:textColor="#ffffff"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-
-                    />
-
-            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>
-
-
 
 
 </RelativeLayout>
