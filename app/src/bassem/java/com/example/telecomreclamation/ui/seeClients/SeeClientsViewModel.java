@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.telecomreclamation.ClientEmails;
 import com.example.telecomreclamation.ClientNames;
-import com.example.telecomreclamation.adapters.ClientAdapter;
+import com.example.telecomreclamation.adapters.EmailsAdapter;
+import com.example.telecomreclamation.adapters.NamesAdapter;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -19,7 +21,8 @@ public class SeeClientsViewModel extends ViewModel {
     CollectionReference collectionReference;
 
     ArrayList<ClientNames> list;
-    ClientAdapter clientAdapter;
+    NamesAdapter namesAdapter;
+
 
     public SeeClientsViewModel(){
         mText=new MutableLiveData<>();

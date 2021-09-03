@@ -13,13 +13,16 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.telecomreclamation.ClientEmails;
 import com.example.telecomreclamation.ClientNames;
-import com.example.telecomreclamation.adapters.ClientAdapter;
+import com.example.telecomreclamation.adapters.NamesAdapter;
 import com.example.telecomreclamation.databinding.FragmentSeeClientsBinding;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class SeeClientsFragment extends Fragment {
 
@@ -40,9 +43,8 @@ public class SeeClientsFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
         seeClientsViewHolder.list=new ArrayList<>();
-        seeClientsViewHolder.clientAdapter=new ClientAdapter(getContext().getApplicationContext(), seeClientsViewHolder.list);
-        recyclerView.setAdapter(seeClientsViewHolder.clientAdapter);
-
+        seeClientsViewHolder.namesAdapter=new NamesAdapter(getContext().getApplicationContext(), seeClientsViewHolder.list);
+        recyclerView.setAdapter(seeClientsViewHolder.namesAdapter);
         return root;
 
     }
@@ -50,6 +52,8 @@ public class SeeClientsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+        seeClientsViewHolder.list.removeAll(seeClientsViewHolder.list);
         seeClientsViewHolder.collectionReference.get()
                 .addOnCompleteListener(task->{
                     if (task.isSuccessful()){
@@ -58,16 +62,13 @@ public class SeeClientsFragment extends Fragment {
                         }else{
                             for (QueryDocumentSnapshot documentSnapshot:task.getResult()){
                                 HashMap<String,Object> hashMap=new HashMap<>(documentSnapshot.getData());
-
                                 ClientNames clientNames=new ClientNames(hashMap.get("client_name").toString());
                                 seeClientsViewHolder.list.add(clientNames);
-                                seeClientsViewHolder.clientAdapter.notifyDataSetChanged();
+                                seeClientsViewHolder.namesAdapter.notifyDataSetChanged();
                             }
                         }
-
                     }else{
-                        Toast.makeText(getContext().getApplicationContext(), "please checj your internet connection", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(getContext().getApplicationContext(), "please check your internet connection", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(failure->{
                     Log.d("ERROR_READING_FROM_DATABASE",failure.getMessage());
@@ -75,8 +76,11 @@ public class SeeClientsFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         binding=null;
+
     }
+
+
 }

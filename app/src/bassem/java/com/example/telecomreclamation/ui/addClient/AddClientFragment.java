@@ -51,8 +51,8 @@ public class AddClientFragment extends Fragment {
             }else{
                 String uuid= UUID.randomUUID().toString();
                 HashMap<String,String> hashMap=new HashMap<>();
-                hashMap.put("clientID", uuid);
-                hashMap.put("clientPassword",client_password.getText().toString());
+                hashMap.put("ClientID", uuid);
+                hashMap.put("ClientPassword",client_password.getText().toString());
                 hashMap.put("ClientEmail",client_email.getText().toString());
                 hashMap.put("ClientName",client_name.getText().toString());
                 
@@ -89,8 +89,8 @@ public class AddClientFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         binding=null;
     }
 }

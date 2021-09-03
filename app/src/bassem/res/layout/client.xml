@@ -26,7 +26,7 @@
             android:padding="1dp"
             android:text="client name"
             android:textColor="#000000"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/seeMoreInformation"
@@ -41,6 +41,20 @@
             android:textStyle="bold" />
 
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/expandable_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewemails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
 
 
 

@@ -14,12 +14,12 @@ import com.example.telecomreclamation.databinding.FragmentSeeComplaintBinding;
 
 public class SeeComplaintFragment extends Fragment {
 
-    private SeeComplaintViewModel homeViewModel;
+    private SeeComplaintViewModel seeComplaintViewModel;
     private FragmentSeeComplaintBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
+        seeComplaintViewModel =
                 new ViewModelProvider(this).get(SeeComplaintViewModel.class);
 
         binding = FragmentSeeComplaintBinding.inflate(inflater, container, false);
