@@ -18,8 +18,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.telecomreclamation.ClientEmails;
+
 import com.example.telecomreclamation.ClientNames;
-import com.example.telecomreclamation.MoreInformationActivity;
 import com.example.telecomreclamation.R;
 
 import com.google.firebase.firestore.CollectionReference;
@@ -115,8 +115,7 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.NamesViewHol
                                         ClientEmails clientEmails=new ClientEmails(
                                                 hashMap.get("ClientEmail"),
                                                 hashMap.get("ClientName"),
-                                                hashMap.get("ClinetID"),
-                                                hashMap.get("ClientPassword")
+                                                hashMap.get("ClinetID")
                                         );
                                         lista.add(clientEmails);
                                         emailsAdapter.notifyDataSetChanged();

@@ -54,7 +54,7 @@
     <fragment
         android:id="@+id/nav_see_clients"
         android:name="com.example.telecomreclamation.ui.seeClients.SeeClientsFragment"
-        android:label="SeeClientsFragment"
+        android:label="@string/menu_see_clients"
         tools:layout="@layout/fragment_see_clients">
 
     </fragment>

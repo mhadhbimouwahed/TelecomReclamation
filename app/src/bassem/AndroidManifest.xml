@@ -3,9 +3,7 @@
     package="com.example.telecomreclamation">
 
     <application>
-        <activity
-            android:name=".MoreInformationActivity"
-            android:exported="true" />
+
     </application>
 
 </manifest>

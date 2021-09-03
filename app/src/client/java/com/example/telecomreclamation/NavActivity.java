@@ -1,5 +1,6 @@
 package com.example.telecomreclamation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -15,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.telecomreclamation.databinding.ActivityNavBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class NavActivity extends AppCompatActivity {
 
@@ -62,4 +64,6 @@ public class NavActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
 }

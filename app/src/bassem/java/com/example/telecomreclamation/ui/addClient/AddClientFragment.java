@@ -38,21 +38,19 @@ public class AddClientFragment extends Fragment {
 
         final EditText client_name=binding.clientName;
         final EditText client_email=binding.clientEmail;
-        final EditText client_password=binding.clientPassword;
+
         final TextView save_client=binding.saveClient;
 
         save_client.setOnClickListener(x->{
             if (client_email.getText().toString().equals("")){
                 client_email.setError("This field cannot be empty");
-            }else if(client_password.getText().toString().equals("")){
-                client_password.setError("This field cannot be empty");
             }else if(client_name.getText().toString().equals("")){
                 client_name.setError("This fiald cannot be empty");
             }else{
                 String uuid= UUID.randomUUID().toString();
                 HashMap<String,String> hashMap=new HashMap<>();
                 hashMap.put("ClientID", uuid);
-                hashMap.put("ClientPassword",client_password.getText().toString());
+
                 hashMap.put("ClientEmail",client_email.getText().toString());
                 hashMap.put("ClientName",client_name.getText().toString());
                 
@@ -69,7 +67,7 @@ public class AddClientFragment extends Fragment {
                                                 Toast.makeText(getContext().getApplicationContext(), "client added successfully", Toast.LENGTH_SHORT).show();
                                                 client_name.setText("");
                                                 client_email.setText("");
-                                                client_password.setText("");
+
                                             }else{
                                                 Toast.makeText(getContext().getApplicationContext(), "failed to add a client", Toast.LENGTH_SHORT).show();
                                             }

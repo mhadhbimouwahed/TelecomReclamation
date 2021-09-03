@@ -26,7 +26,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         wait.setVisibility(View.VISIBLE);
-        CountDownTimer countDownTimer=new CountDownTimer(3000,200) {
+        CountDownTimer countDownTimer=new CountDownTimer(300,50) {
             @Override
             public void onTick(long millisUntilFinished) {
 

@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.telecomreclamation.R;
 import com.example.telecomreclamation.databinding.FragmentGalleryBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class GalleryFragment extends Fragment {
 
@@ -37,6 +38,8 @@ public class GalleryFragment extends Fragment {
         });
         return root;
     }
+
+
 
     @Override
     public void onDestroyView() {

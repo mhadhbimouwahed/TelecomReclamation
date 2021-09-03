@@ -5,13 +5,13 @@ public class ClientEmails {
     String email;
     String name;
     String ID;
-    String password;
 
-    public ClientEmails(Object email, Object name, Object ID, Object password) {
+
+    public ClientEmails(Object email, Object name, Object ID) {
         this.email =(String) email;
         this.name = (String) name;
         this.ID =(String) ID;
-        this.password =  (String) password;
+
     }
 
     public String getEmail() {
@@ -38,11 +38,5 @@ public class ClientEmails {
         this.ID = ID;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
