@@ -60,7 +60,7 @@ public class SignupActivity extends AppCompatActivity {
 
         adapter_client_email=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,client_email);
         adapter_client_email.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        email_signup.setAdapter(adapter_client_email);
+
 
 
         signup_signup.setOnClickListener(x->{
@@ -71,6 +71,8 @@ public class SignupActivity extends AppCompatActivity {
         full_name.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                email_signup.setAdapter(null);
+                client_email.removeAll(client_email);
                 collectionReference
                         .document(adapterView.getAdapter().getItem(i).toString())
                         .collection("Emails")
@@ -78,12 +80,17 @@ public class SignupActivity extends AppCompatActivity {
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()){
                                 if (task.getResult().isEmpty()){
-
+                                    Toast.makeText(getApplicationContext(), "There are no emails yet", Toast.LENGTH_SHORT).show();
                                 }else{
-
+                                    email_signup.setAdapter(adapter_client_email);
+                                    for (QueryDocumentSnapshot documentSnapshot:task.getResult()){
+                                        String email=documentSnapshot.getString("ClientEmail");
+                                        client_email.add(email);
+                                    }
+                                    adapter_client_email.notifyDataSetChanged();
                                 }
                             }else{
-
+                                Toast.makeText(getApplicationContext(), "failed to read from database", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .addOnFailureListener(e -> {
