@@ -14,6 +14,11 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,6 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView signup;
     private ProgressBar progressBar;
     FirebaseAuth firebaseAuth;
+    FirebaseFirestore firestore;
+    CollectionReference collectionReference;
     FirebaseUser user;
 
     @Override
@@ -32,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth=FirebaseAuth.getInstance();
+        firestore=FirebaseFirestore.getInstance();
+        collectionReference=firestore.collection("CreatedUsers");
 
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
@@ -46,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             }else if(password.getText().toString().equals("")){
                 password.setError("This field cannot be empty");
             }else{
+                progressBar.setVisibility(View.VISIBLE);
                 Login();
             }
         });
@@ -62,24 +72,45 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void Login() {
-        /*firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString())
+        collectionReference
+                .whereEqualTo("ClientEmail",email.getText().toString())
+                .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()){
-                        Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(),NavActivity.class));
+                        if (task.getResult().isEmpty()){
+                            AlertDialog.Builder builder=new AlertDialog.Builder(this);
+                            builder.create();
+                            builder.setTitle("CONTACT THE ADMIN");
+                            builder.setMessage("Please contact the admin so you could connect");
+                            builder.setPositiveButton("Okay",((dialogInterface, i) -> dialogInterface.dismiss()));
+                            builder.show();
+                        }else{
+                            for (QueryDocumentSnapshot documentSnapshot:task.getResult()){
+                                firebaseAuth.signInWithEmailAndPassword(Objects.requireNonNull(documentSnapshot.getString("ClientEmail")),password.getText().toString())
+                                        .addOnCompleteListener(task1 -> {
+                                            if (task1.isSuccessful()){
+                                                startActivity(new Intent(getApplicationContext(),NavActivity.class));
+                                            }else{
+                                                AlertDialog.Builder builder=new AlertDialog.Builder(this);
+                                                builder.create();
+                                                builder.setTitle("Error");
+                                                builder.setMessage("Please check you email and password");
+                                                builder.setPositiveButton("Okay",((dialogInterface, i) -> dialogInterface.dismiss()));
+                                                builder.show();
+                                            }
+                                        })
+                                        .addOnFailureListener(e1->{
+                                           Log.d("ERROR_SIGINING_CLIENT",e1.getMessage());
+                                        });
+                            }
+                        }
                     }else{
-                        AlertDialog.Builder builder=new AlertDialog.Builder(this);
-                        builder.create();
-                        builder.setTitle("Error");
-                        builder.setMessage("please check your email and password");
-                        builder.setPositiveButton("Okay",((dialogInterface, i) -> dialogInterface.dismiss()));
-                        builder.show();
-                        Toast.makeText(getApplicationContext(), "failed ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Please check your internet connection", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Log.d("ERROR_SIGNING_IN",e.getMessage());
-                });*/
+                    Log.d("ERROR_READING_FROM_DATABASE",e.getMessage());
+                });
     }
 
     @Override

@@ -100,10 +100,42 @@
                 android:id="@+id/password_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/icon"
+                android:layout_toRightOf="@+id/icona"
                 android:background="@android:color/transparent"
                 android:fontFamily="sans-serif"
                 android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingLeft="17dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/icona"
+                android:layout_width="14.7dp"
+                android:layout_height="10.3dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/password" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="17.7dp"
+            android:layout_marginRight="62dp"
+            android:background="@drawable/blue_border_rounded_cornwe">
+
+            <EditText
+                android:id="@+id/password_signup_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/icon"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif"
+                android:hint="Confrm Password"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:paddingLeft="17dp"

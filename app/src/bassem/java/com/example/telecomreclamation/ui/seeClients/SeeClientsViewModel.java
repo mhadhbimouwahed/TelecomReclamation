@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.telecomreclamation.ClientEmails;
+
 import com.example.telecomreclamation.ClientNames;
-import com.example.telecomreclamation.adapters.EmailsAdapter;
 import com.example.telecomreclamation.adapters.NamesAdapter;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;

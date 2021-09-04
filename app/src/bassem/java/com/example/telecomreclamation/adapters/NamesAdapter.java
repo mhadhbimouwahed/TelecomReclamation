@@ -95,39 +95,12 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.NamesViewHol
 
 
             seeMoreInfo.setOnClickListener(x->{
-                ClientNames clientNames=list.get(getAdapterPosition());
-                clientNames.setIsExpanded(!clientNames.isExpanded());
-                notifyItemChanged(getAdapterPosition());
-                lista.removeAll(lista);
+
                 /*Intent intent=new Intent(context.getApplicationContext(), MoreInformationActivity.class);
                 intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("CLIENT_NAME",clientNameTextView.getText().toString());
                 context.startActivity(intent);*/
-                collectionReference.document(clientNameTextView.getText().toString()).collection("Emails")
-                        .get()
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()){
-                                if (task.getResult().isEmpty()){
-                                    Toast.makeText(context.getApplicationContext(), "There are no emails yet", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    for(QueryDocumentSnapshot documentSnapshot:task.getResult()){
-                                        HashMap<String,Object> hashMap=new HashMap<>(documentSnapshot.getData());
-                                        ClientEmails clientEmails=new ClientEmails(
-                                                hashMap.get("ClientEmail"),
-                                                hashMap.get("ClientName"),
-                                                hashMap.get("ClinetID")
-                                        );
-                                        lista.add(clientEmails);
-                                        emailsAdapter.notifyDataSetChanged();
-                                    }
-                                }
-                            }else{
-                                Toast.makeText(context.getApplicationContext(), "failed to read from databas", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(e -> {
-                            Log.d("ERROR_READING_FROM_DATABASE",e.getMessage());
-                        });
+
 
             });
 
