@@ -41,24 +41,6 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/expandable_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="50dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewemails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-
-
-
-
-
 
 
 </androidx.cardview.widget.CardView>

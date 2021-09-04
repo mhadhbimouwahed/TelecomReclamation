@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.telecomreclamation.ClientEmails;
 
 import com.example.telecomreclamation.ClientNames;
+import com.example.telecomreclamation.MoreInformationActivity;
 import com.example.telecomreclamation.R;
 
 import com.google.firebase.firestore.CollectionReference;
@@ -52,8 +53,8 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.NamesViewHol
     public void onBindViewHolder(@NonNull NamesViewHolder holder, int position) {
         ClientNames clientNames=list.get(position);
         holder.clientNameTextView.setText(clientNames.getClientName());
-        boolean isExpanded=list.get(position).isExpanded();
-        holder.expandable_layout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+
+
     }
 
 
@@ -67,41 +68,33 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.NamesViewHol
 
         TextView seeMoreInfo;
         TextView clientNameTextView;
-        RecyclerView recyclerView_emails;
+
         LinearLayout expandable_layout;
         FirebaseFirestore firestore;
         CollectionReference collectionReference;
 
 
-        ArrayList<ClientEmails> lista;
-        EmailsAdapter emailsAdapter;
+
 
         public NamesViewHolder(@NonNull View itemView) {
             super(itemView);
 
             seeMoreInfo=itemView.findViewById(R.id.seeMoreInformation);
             clientNameTextView=itemView.findViewById(R.id.clientNameTextView);
-            recyclerView_emails=itemView.findViewById(R.id.recyclerViewemails);
-            expandable_layout=itemView.findViewById(R.id.expandable_layout);
+
+
             firestore=FirebaseFirestore.getInstance();
             collectionReference=firestore.collection("ApprovedUsers");
 
-            recyclerView_emails.setHasFixedSize(true);
-            recyclerView_emails.setLayoutManager(new LinearLayoutManager(context.getApplicationContext()));
-            lista=new ArrayList<>();
-            emailsAdapter=new EmailsAdapter(context.getApplicationContext(),lista);
-            recyclerView_emails.setAdapter(emailsAdapter);
+
 
 
 
             seeMoreInfo.setOnClickListener(x->{
-
-                /*Intent intent=new Intent(context.getApplicationContext(), MoreInformationActivity.class);
+                Intent intent=new Intent(context.getApplicationContext(), MoreInformationActivity.class);
                 intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("CLIENT_NAME",clientNameTextView.getText().toString());
-                context.startActivity(intent);*/
-
-
+                context.startActivity(intent);
             });
 
 

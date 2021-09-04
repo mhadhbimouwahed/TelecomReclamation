@@ -3,8 +3,8 @@ package com.example.telecomreclamation;
 public class ClientEmails {
 
     String email;
-    String name;
-    String ID;
+     String name;
+     String ID;
 
 
     public ClientEmails(Object email, Object name, Object ID) {

@@ -35,7 +35,9 @@ public class EmailsAdapter extends RecyclerView.Adapter<EmailsAdapter.EmailsView
     @Override
     public void onBindViewHolder(@NonNull EmailsViewHolder holder, int position) {
         ClientEmails clientEmails=list.get(position);
-        holder.email_item.setText(clientEmails.getEmail());
+        holder.emailDeclient.setText(clientEmails.getEmail());
+        holder.nomDeClient.setText(clientEmails.getName());
+        holder.idDeClient.setText(clientEmails.getID());
     }
 
     @Override
@@ -45,11 +47,16 @@ public class EmailsAdapter extends RecyclerView.Adapter<EmailsAdapter.EmailsView
 
     public class EmailsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView email_item;
+        TextView emailDeclient;
+        TextView nomDeClient;
+        TextView idDeClient;
+
 
         public EmailsViewHolder(@NonNull View itemView) {
             super(itemView);
-            email_item=itemView.findViewById(R.id.email_item);
+            emailDeclient=itemView.findViewById(R.id.emailDeClient);
+            nomDeClient=itemView.findViewById(R.id.nomDeClient);
+            idDeClient=itemView.findViewById(R.id.idDeClient);
         }
     }
 }

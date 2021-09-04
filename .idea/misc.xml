@@ -14,7 +14,7 @@
         <entry key="app/src/bassem/res/layout/client.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/clients.xml" value="0.321875" />
         <entry key="app/src/bassem/res/layout/content_nav.xml" value="0.321875" />
-        <entry key="app/src/bassem/res/layout/emails.xml" value="0.321875" />
+        <entry key="app/src/bassem/res/layout/emails.xml" value="0.1" />
         <entry key="app/src/bassem/res/layout/fragment_add_client.xml" value="0.2601851851851852" />
         <entry key="app/src/bassem/res/layout/fragment_add_remove_client.xml" value="0.2601851851851852" />
         <entry key="app/src/bassem/res/layout/fragment_delete_client.xml" value="0.264" />
