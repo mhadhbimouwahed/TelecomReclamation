@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="15dp">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        >
+
+        <EditText
+            android:id="@+id/emailDeClient_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="emaiklqsdqsdqsd"
+            android:inputType="textEmailAddress"
+            android:textSize="15sp"/>
+
+
+        <TextView
+            android:id="@+id/modify_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="modify"
+            android:background="@drawable/gradient_textview"
+            android:padding="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginStart="150dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        >
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/nomDeClient_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="emaikl"
+            android:textSize="10sp"/>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/idDeClient_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="emaikl"
+            android:textSize="10sp"/>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -52,6 +52,7 @@ public class ModifyClientFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        modifyClientViewHolder.list.removeAll(modifyClientViewHolder.list);
         modifyClientViewHolder.collectionReference
                 .get()
                 .addOnCompleteListener(task -> {

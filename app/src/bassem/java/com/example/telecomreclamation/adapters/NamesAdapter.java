@@ -69,7 +69,7 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.NamesViewHol
         TextView seeMoreInfo;
         TextView clientNameTextView;
 
-        LinearLayout expandable_layout;
+
         FirebaseFirestore firestore;
         CollectionReference collectionReference;
 
