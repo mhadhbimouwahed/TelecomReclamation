@@ -12,9 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.telecomreclamation.R;
 import com.example.telecomreclamation.databinding.FragmentGalleryBinding;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class GalleryFragment extends Fragment {
 

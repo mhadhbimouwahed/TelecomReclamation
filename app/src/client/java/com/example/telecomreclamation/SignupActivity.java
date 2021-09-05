@@ -159,9 +159,12 @@ public class SignupActivity extends AppCompatActivity {
                         AlertDialog.Builder builder=new AlertDialog.Builder(this);
                         builder.create();
                         builder.setTitle("Error");
-                        builder.setMessage("user already exists, please check again");
+                        builder.setMessage("failed to create an account, please try again");
                         builder.setPositiveButton("Okay",((dialogInterface, i) -> dialogInterface.dismiss()));
                         builder.show();
+                        password_signup.setText("");
+                        password_signup_confirm.setText("");
+                        progressBar_signup.setVisibility(View.INVISIBLE);
                     }
                 })
                 .addOnFailureListener(e -> {

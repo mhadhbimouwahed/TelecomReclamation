@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.telecomreclamation.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.telecomreclamation.ui.sendComplaint.SendComplaintFragment"
+        android:label="@string/menu_send_complaint"
+        tools:layout="@layout/fragment_send_complaint" />
 
     <fragment
         android:id="@+id/nav_gallery"
