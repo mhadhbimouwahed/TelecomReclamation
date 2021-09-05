@@ -84,6 +84,9 @@ public class LoginActivity extends AppCompatActivity {
                             builder.setMessage("Please contact the admin so you could connect");
                             builder.setPositiveButton("Okay",((dialogInterface, i) -> dialogInterface.dismiss()));
                             builder.show();
+                            email.setText("");
+                            password.setText("");
+                            progressBar.setVisibility(View.INVISIBLE);
                         }else{
                             for (QueryDocumentSnapshot documentSnapshot:task.getResult()){
                                 firebaseAuth.signInWithEmailAndPassword(Objects.requireNonNull(documentSnapshot.getString("ClientEmail")),password.getText().toString())
@@ -106,10 +109,12 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }else{
                         Toast.makeText(getApplicationContext(), "Please check your internet connection", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 })
                 .addOnFailureListener(e -> {
                     Log.d("ERROR_READING_FROM_DATABASE",e.getMessage());
+                    progressBar.setVisibility(View.INVISIBLE);
                 });
     }
 
