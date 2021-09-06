@@ -12,6 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -21,6 +23,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
+
 
     private EditText email;
     private EditText password;
@@ -70,6 +73,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+
 
     private void Login() {
         collectionReference

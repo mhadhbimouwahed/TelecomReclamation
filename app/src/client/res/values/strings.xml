@@ -20,6 +20,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_send_complaint">Send Complaint</string>
 
+    <string name="api_key">AIzaSyCM1CBp-p3JOgan374EqIsGW23RL7n0TDI</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_maps">MapsActivity</string>
 </resources>
