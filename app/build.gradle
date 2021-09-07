@@ -37,16 +37,13 @@ android {
         client{
             dimension "default"
             applicationIdSuffix ".client"
-
-
         }
         bassem{
             dimension "default"
             applicationIdSuffix ".bassem"
-
-
         }
     }
+
 
     buildFeatures {
         viewBinding true
