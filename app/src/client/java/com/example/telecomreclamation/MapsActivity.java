@@ -7,9 +7,18 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -23,6 +32,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.telecomreclamation.databinding.ActivityMapsBinding;
 import com.google.android.gms.tasks.Task;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -35,18 +48,55 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1324;
     private Boolean mLocationPermissionGranted = false;
     private FusedLocationProviderClient mFusedLocationProviderClient;
+    // widgets
+    private EditText mSearchText;
+    private ImageView gps;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
-
-
-
+        mSearchText=findViewById(R.id.input_search);
+        gps=findViewById(R.id.ic_gps);
         getLocationPermissions();
 
+        gps.setOnClickListener(x->{
+            getDeviceLocation();
+        });
+    }
+
+
+    private void init(){
+        mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionID, KeyEvent keyEvent) {
+                if (actionID== EditorInfo.IME_ACTION_SEARCH || actionID==EditorInfo.IME_ACTION_DONE || keyEvent.getAction()==keyEvent.ACTION_DOWN
+                || keyEvent.getAction()==keyEvent.KEYCODE_ENTER){
+                    //execute search method
+                    geoLocate();
+                }
+                return false;
+            }
+        });
+        hideSoftKeyboard();
+    }
+
+    private void geoLocate() {
+        String searchString=mSearchText.getText().toString();
+        Geocoder geocoder=new Geocoder(MapsActivity.this);
+        List<Address> addresses=new ArrayList<>();
+        try {
+            addresses=geocoder.getFromLocationName(searchString,1);
+
+        }catch (IOException e){
+            Log.d("MapActivity",e.getMessage());
+        }
+        if (addresses.size()>0){
+            Address address=addresses.get(0);
+            Toast.makeText(getApplicationContext(), address.toString(), Toast.LENGTH_SHORT).show();
+            moveCamera(new LatLng(address.getLatitude(),address.getLongitude()),DEFAULT_ZOOM,address.getAddressLine(0));
+        }
     }
 
     private void getDeviceLocation() {
@@ -59,7 +109,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     if (task.isSuccessful()) {
                         Toast.makeText(getApplicationContext(), "found location", Toast.LENGTH_SHORT).show();
                         Location currentLocation = (Location) task.getResult();
-                        moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), DEFAULT_ZOOM);
+                        moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), DEFAULT_ZOOM,"my location");
 
                     } else {
                         Toast.makeText(getApplicationContext(), "couldn't find location", Toast.LENGTH_SHORT).show();
@@ -71,9 +121,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void moveCamera(LatLng latLng, float zoom) {
+    private void moveCamera(LatLng latLng, float zoom,String title) {
         Toast.makeText(getApplicationContext(), "moving the camera to " + latLng.latitude + ";" + latLng.longitude, Toast.LENGTH_SHORT).show();
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
+        if (!title.equals("my location")){
+            MarkerOptions options=new MarkerOptions().position(latLng).title(title);
+            mMap.addMarker(options);
+        }
+        hideSoftKeyboard();
     }
 
     private void initMap() {
@@ -94,6 +149,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(false);
+            init();
         }
     }
 
@@ -128,6 +184,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 initMap();
             }
         }
+    }
+
+    private void hideSoftKeyboard(){
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
 }
