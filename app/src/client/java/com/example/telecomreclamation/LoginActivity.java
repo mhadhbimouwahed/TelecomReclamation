@@ -105,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 builder.setMessage("Please check you email and password");
                                                 builder.setPositiveButton("Okay",((dialogInterface, i) -> dialogInterface.dismiss()));
                                                 builder.show();
+                                                progressBar.setVisibility(View.INVISIBLE);
                                             }
                                         })
                                         .addOnFailureListener(e1->{

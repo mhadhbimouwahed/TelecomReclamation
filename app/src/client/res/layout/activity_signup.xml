@@ -19,6 +19,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="10dp"
             android:src="@drawable/logo" />
+
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,6 +48,7 @@
 
 
 
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,20 +58,21 @@
             android:background="@drawable/blue_border_rounded_cornwe">
 
 
-            <Spinner
+            <EditText
                 android:id="@+id/email_signup"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/username_icon"
+                android:background="@android:color/transparent"
                 android:fontFamily="sans-serif"
-
-
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
                 android:paddingLeft="17dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
 
-                android:textSize="14sp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:textSize="14sp" />
 
             <ProgressBar
                 android:id="@+id/progress_bar_signup"
