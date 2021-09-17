@@ -1,11 +1,15 @@
 package com.example.telecomreclamation;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -31,9 +35,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.telecomreclamation.databinding.ActivityMapsBinding;
 import com.google.android.gms.tasks.Task;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -64,6 +73,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         gps.setOnClickListener(x->{
             getDeviceLocation();
         });
+        Places.initialize(getApplicationContext(),"AIzaSyDKmE1oMRC0h31-kKPeOCD7BY0-FdLf5WI");
+
     }
 
 
@@ -75,11 +86,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 || keyEvent.getAction()==keyEvent.KEYCODE_ENTER){
                     //execute search method
                     geoLocate();
+                    //Initialize place field list
+                    List<Place.Field> fieldList= Arrays.asList(Place.Field.ADDRESS,
+                            Place.Field.LAT_LNG,Place.Field.NAME);
+                    //Create Intent
+                    Intent intent=new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,fieldList)
+                            .build(MapsActivity.this);
+                    //Start activity result
+                    startActivityForResult(intent,100);
+
                 }
                 return false;
             }
         });
         hideSoftKeyboard();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == RESULT_OK){
+            Place place=Autocomplete.getPlaceFromIntent(data);
+            mSearchText.setText(place.getAddress());
+
+
+        }
     }
 
     private void geoLocate() {
@@ -149,6 +180,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(false);
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
             init();
         }
     }
